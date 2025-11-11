@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap");
 
+/* Variáveis e Reset Global */
 :root {
   --color-primary: #8a0b0b;
   --color-secondary: #8f0d2c;
@@ -32,10 +33,15 @@ body {
   color: var(--color-light);
 }
 
+/* Tipografia e Elementos Base */
 img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+figure {
+  margin: 0;
 }
 
 h1,
@@ -68,6 +74,7 @@ em {
   font-weight: 500;
 }
 
+/* Layout Principal (Header, Main, Footer) */
 body > header {
   background-color: var(--color-primary);
   color: var(--color-light);
@@ -80,6 +87,26 @@ body > header {
   gap: 20px;
 }
 
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+main > section,
+main > aside {
+  margin-bottom: 30px;
+}
+
+body > footer {
+  text-align: center;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 30px;
+  margin-top: 30px;
+}
+
+/* Componentes do Header */
 #main-header-logo {
   margin-bottom: 0;
 }
@@ -120,18 +147,7 @@ header nav {
   color: var(--color-light);
 }
 
-main {
-  width: 90%;
-  max-width: 1200px;
-  margin: 30px auto;
-}
-
-main > section,
-main > aside {
-  margin-bottom: 30px;
-}
-
-/* Estilo para os títulos de seção (ex: "Notícias em Destaque") */
+/* Títulos de Seção Principal */
 main > section > h2:first-child,
 main > aside > h2:first-child {
   border-bottom: 2px solid var(--color-secondary);
@@ -140,6 +156,7 @@ main > aside > h2:first-child {
   font-size: 2.2em;
 }
 
+/* Grids de Conteúdo */
 .main-news {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -152,15 +169,16 @@ main > aside > h2:first-child {
   gap: 30px;
 }
 
+/* Cards (News & Review) */
 .news,
 .review {
   background-color: #ffffff;
   border-radius: var(--border-radius-main);
   box-shadow: var(--base-shadow);
   overflow: hidden;
-  display: flex; /* Adicionado para layout interno */
-  flex-direction: column; /* Organiza o card verticalmente */
-  height: 100%; /* Garante que os cards preencham a altura do grid */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .news > header,
@@ -168,36 +186,30 @@ main > aside > h2:first-child {
   padding: 25px;
 }
 
-.news header h2,
-.review header h2 {
+.news > header h2,
+.review > header h2 {
   font-size: 1.8em;
   border-bottom: none;
   margin-bottom: 5px;
 }
 
-.news header p,
-.review header p {
+.news > header p,
+.review > header p {
   font-size: 1.1em;
   color: #555;
   margin-bottom: 0;
 }
 
-figure {
-  margin: 0;
-}
-
-/* Regra geral 'figure img' foi removida e dividida abaixo */
-
 .news figure img {
   width: 100%;
-  aspect-ratio: 16 / 9; /* Força proporção 16:9 para notícias */
-  object-fit: cover; /* Evita distorção da imagem */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .review figure img {
   width: 100%;
-  aspect-ratio: 1 / 1; /* Força proporção 1:1 (quadrada) para reviews */
-  object-fit: cover; /* Evita distorção da imagem */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 figcaption {
@@ -220,9 +232,10 @@ figcaption {
   font-size: 0.9em;
   color: #777;
   border-top: 1px solid var(--color-light);
-  margin-top: auto; /* Empurra o footer para o final do card */
+  margin-top: auto;
 }
 
+/* Componente Details (Accordion) */
 details {
   padding: 0 25px;
   margin-top: 20px;
@@ -255,6 +268,7 @@ details p {
   border-bottom-right-radius: 5px;
 }
 
+/* Conteúdo Extra (Sidebar) */
 .extra-content {
   background-color: #ffffff;
   padding: 25px;
@@ -263,7 +277,7 @@ details p {
 }
 
 .extra-content h2 {
-  font-size: 1.5em; /* Esta regra será sobrescrita pela regra mais específica acima */
+  font-size: 1.5em;
 }
 
 .related-item {
@@ -275,9 +289,7 @@ details p {
 }
 
 .related-item:last-of-type {
-  border-bottom: 1px solid var(--color-light); /* Garante consistência */
   margin-bottom: 0;
-  padding-bottom: 20px; /* Garante consistência */
 }
 
 .related-item p {
@@ -303,6 +315,7 @@ details p {
   border-color: var(--color-hover);
 }
 
+/* Formulário de Contato */
 .contact {
   background-color: #ffffff;
   padding: 25px;
@@ -381,14 +394,7 @@ button[type="submit"]:hover {
   background-color: var(--color-hover);
 }
 
-body > footer {
-  text-align: center;
-  background-color: var(--color-dark);
-  color: var(--color-light);
-  padding: 30px;
-  margin-top: 30px;
-}
-
+/* Estilos do Footer */
 body > footer p {
   margin: 0;
   font-size: 1em;
@@ -406,6 +412,7 @@ body > footer a:hover {
   text-decoration: underline;
 }
 
+/* Utilitários */
 .icon {
   width: 18px;
   height: 18px;
@@ -414,6 +421,7 @@ body > footer a:hover {
   display: inline-block;
 }
 
+/* Media Queries */
 @media (max-width: 900px) {
   body > header {
     padding-left: 3%;
@@ -426,7 +434,7 @@ body > footer a:hover {
   }
 
   .main-news {
-    grid-template-columns: 1fr; /* Volta para 1 coluna */
+    grid-template-columns: 1fr;
   }
 
   .reviews {
@@ -436,13 +444,12 @@ body > footer a:hover {
 
 @media (max-width: 600px) {
   h2,
-  .news header h2,
-  .review header h2,
+  .news > header h2,
+  .review > header h2,
   .contact h2 {
     font-size: 1.6em;
   }
 
-  /* Títulos de seção em telas pequenas */
   main > section > h2:first-child {
     font-size: 1.8em;
   }
